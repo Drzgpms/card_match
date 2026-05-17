@@ -30,24 +30,46 @@ let isFinished board =
 let rec getValidChoice (state : GameState) prompt =
     printf "%s" prompt
 
-    let choice = readInput() - 1
+    let input =
+        Console.ReadLine().Trim().ToLower()
 
-    if choice < 0 || choice >= List.length state.Board then
-        printfn "Invalid choice!"
-        Thread.Sleep(700)
+    match input with
+    | "q"
+    | "quit"
+    | "exit" ->
+        printfn "Game terminated."
+        Environment.Exit(0)
+        0
 
-        printBoard state
-        getValidChoice state prompt
+    | _ ->
+        match Int32.TryParse(input) with
+        | false, _ ->
+            printfn "Invalid input!"
+            Thread.Sleep(700)
 
-    elif state.Board.[choice].Revealed || state.Board.[choice].Matched then
-        printfn "Card already opened!"
-        Thread.Sleep(700)
+            printBoard state
+            getValidChoice state prompt
 
-        printBoard state
-        getValidChoice state prompt
+        | true, value ->
 
-    else
-        choice
+            let choice = value - 1
+
+            if choice < 0 || choice >= List.length state.Board then
+                printfn "Invalid choice!"
+                Thread.Sleep(700)
+
+                printBoard state
+                getValidChoice state prompt
+
+            elif state.Board.[choice].Revealed || state.Board.[choice].Matched then
+                printfn "Card already opened!"
+                Thread.Sleep(700)
+
+                printBoard state
+                getValidChoice state prompt
+
+            else
+                choice
 
 let rec gameLoop (state : GameState) =
     printBoard state
