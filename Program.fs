@@ -1,6 +1,7 @@
 ﻿open Types
 open Board
 open Game
+open System
 
 let rec selectDifficulty () =
     printfn "E / Easy   -> 4x4"
@@ -25,6 +26,7 @@ let rec selectDifficulty () =
         Hard
 
     | _ ->
+        Console.Clear()
         printfn "Invalid difficulty."
         printfn ""
         selectDifficulty ()
