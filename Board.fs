@@ -19,8 +19,6 @@ let createBoard size =
 
     let (themeName, words) = getRandomTheme()
 
-    printfn "Theme: %s" themeName
-
     let selectedWords =
         words
         |> List.take pairCount
@@ -32,11 +30,12 @@ let createBoard size =
               { Value = word; Revealed = false; Matched = false } ])
         |> shuffle
 
-    cards
+    (cards, themeName)
 
 let printBoard (state : GameState) =
     Console.Clear()
 
+    printfn "Current Theme: %s" state.Theme
     printfn "Attempts: %d" state.Attempts
     printfn ""
 

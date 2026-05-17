@@ -16,4 +16,5 @@ type GameState = {
     Board : Card list
     Size : int
     Attempts : int
+    Theme : string
 }
