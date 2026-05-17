@@ -174,7 +174,7 @@ let themes =
             [ "Circle"; "Square"; "Triangle"; "Rectangle"; "Oval"; "Pentagon"; "Hexagon"; "Octagon"
               "Star"; "Diamond"; "Cube"; "Sphere"; "Cylinder"; "Cone"; "Pyramid"; "Prism"
               "Arrow"; "Heart"; "Cross"; "Line"; "Curve"; "Spiral"; "Polygon"; "Semicircle"
-              "Parallelogram"; "Rhombus"; "Trapezoid"; "Ellipse"; "Arc"; "Dot"; "Ring"; "Crescent" ])
+              "Kite"; "Rhombus"; "Trapezoid"; "Ellipse"; "Arc"; "Dot"; "Ring"; "Crescent" ])
         
         ("Subjects",
             [ "Math"; "Science"; "History"; "Physics"; "Chemistry"; "Biology"; "Geography"; "English"
