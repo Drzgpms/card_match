@@ -2,7 +2,6 @@ module Board
 
 open Types
 open Utils
-open Themes
 open System
 
 let getSize difficulty =
@@ -11,13 +10,14 @@ let getSize difficulty =
     | Normal -> 6
     | Hard -> 8
 
-let getRandomTheme () =
-    themes[rand.Next(themes.Length)]
-
 let createBoard size =
     let pairCount = (size * size) / 2
 
-    let (themeName, words) = getRandomTheme()
+    let words =
+        [ "Apple"; "Banana"; "Orange"; "Grape"; "Peach"; "Cherry"; "Lemon"; "Melon"
+          "Mango"; "Pear"; "Plum"; "Kiwi"; "Papaya"; "Coconut"; "Berry"; "Fig"
+          "Guava"; "Lychee"; "Apricot"; "Avocado"; "Date"; "Durian"; "Olive"; "Pineapple"
+          "Raspberry"; "Strawberry"; "Tomato"; "Watermelon"; "Lime"; "Tangerine"; "Dragonfruit"; "Passionfruit" ]
 
     let selectedWords =
         words
@@ -30,12 +30,11 @@ let createBoard size =
               { Value = word; Revealed = false; Matched = false } ])
         |> shuffle
 
-    (cards, themeName)
+    cards
 
 let printBoard (state : GameState) =
     Console.Clear()
 
-    printfn "Current Theme: %s" state.Theme
     printfn "Attempts: %d" state.Attempts
     printfn ""
 

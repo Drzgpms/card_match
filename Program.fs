@@ -38,14 +38,13 @@ let main argv =
 
     let size = getSize difficulty
 
-    let board, theme = createBoard size
+    let board = createBoard size
 
     let initialState =
         {
             Board = board
             Size = size
             Attempts = 0
-            Theme = theme
         }
 
     gameLoop initialState

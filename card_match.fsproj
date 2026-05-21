@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Compile Include="Types.fs" />
-    <Compile Include="Themes.fs" />
     <Compile Include="Utils.fs" />
     <Compile Include="Board.fs" />
     <Compile Include="Game.fs" />
