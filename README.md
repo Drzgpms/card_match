@@ -84,7 +84,7 @@ If the player enters an invalid difficulty input, the game displays an error mes
 
 - All cards initially appear face-down.
 - Face-down cards are represented by numbered positions.
-- Revealed cards display their values.
+- Revealed cards display their words.
 - Successfully matched cards remain permanently revealed.
 
 Example:
@@ -92,6 +92,8 @@ Example:
 ```text
 🂠 1            🂠 2            🂠 3            🂠 4
 🂠 5            🂠 6            🂠 7            🂠 8
+🂠 9            🂠 10           🂠 11           🂠 12
+🂠 13           🂠 14           🂠 15           🂠 16
 ```
 
 ---
@@ -99,10 +101,13 @@ Example:
 ### 4. Selecting Cards
 
 - The player selects two different card positions each turn.
+- The player selects cards by entering the number shown on the board.
 - After the first selection, the chosen card is revealed.
 - After the second selection:
+  - The second chosen card is revealed.
   - If the two cards match, they stay revealed.
   - If they do not match, they are hidden again after a short delay.
+- Also, the console screen is cleared after each turn so players cannot easily view previously revealed cards, preserving the memory-based gameplay experience.
 
 ---
 
@@ -116,6 +121,13 @@ The game checks for invalid inputs, including:
 - Selecting an already matched card
 
 If invalid input is entered, the player is asked to try again.
+
+Examples of invalid inputs:
+
+```text
+Select first card: hello
+Select second card: 100
+```
 
 ---
 
@@ -154,4 +166,32 @@ card_match
 
 ## LLM Usage
 
-(To be added later.)
+### What the LLM Was Used For
+
+The LLM was used throughout the overall development process of the project, including:
+
+- Generating the initial structure of the F# program
+- Assisting with gameplay logic implementation
+- Helping organize the project into multiple modules
+- Improving code readability and structure
+- Assisting with README documentation writing
+
+---
+
+### Manual Changes and Reprompting
+
+After the initial code generation, the game had a UI-related issue during input validation.
+
+When the player entered an invalid input, the program continuously created new input lines along with error messages. Although the game still functioned correctly after valid input was entered, the console output became cluttered and negatively affected the gameplay experience.
+
+To solve this issue, the LLM was prompted again to modify the UI behavior. The updated version cleared the console screen appropriately and improved the overall readability of the game interface.
+
+Other than this issue, most remaining changes were small manual modifications and refinements made directly by me.
+
+---
+
+### Main Limitation of the LLM
+
+The main issue the LLM could not handle correctly in the initial generation was the console UI behavior related to repeated invalid inputs.
+
+While the gameplay logic itself worked properly, the generated interface design did not sufficiently consider user experience and console readability until additional prompting and manual adjustments were made.
