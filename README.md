@@ -119,7 +119,7 @@ Example:
 
 The game checks for invalid inputs, including:
 
-- Non-numeric input (except `q`, `quit`, or `exit` for terminating the game)
+- Non-numeric input
 - Numbers outside the valid range
 - Selecting an already revealed card
 - Selecting an already matched card
