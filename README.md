@@ -68,7 +68,11 @@ Available inputs:
 - `n` or `normal`
 - `h` or `hard`
 
-If the player enters an invalid difficulty input, the game displays an error message and asks the player to try again.
+**Additional Requirement:**  
+Invalid difficulty inputs are handled by displaying an error message and repeatedly prompting the player until a valid difficulty is entered.
+
+**Justification:**  
+This requirement was unintentionally omitted from the original proposal. This behavior was added to improve usability and prevent the program from terminating or entering an unintended state due to incorrect user input.
 
 ---
 
